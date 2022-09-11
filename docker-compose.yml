@@ -12,12 +12,14 @@ services:
   mysql:
     container_name: "mysql"
     build: ./docker/mysql
+    platform: linux/x86_64
     ports:
       - "3306:3306"
     volumes:
       - mysql_db:/var/lib/mysql:delegated
     environment:
-      - MYSQL_DATABASE=go_clean_architecture_web_application_boilerplate
+      - MYSQL_DATABASE=go_api_boilerplate
+      - MYSQL_USER=user
       - MYSQL_ROOT_PASSWORD=password
 volumes:
   mysql_db:
